@@ -1,0 +1,14 @@
+{
+	"Version": "2008-10-17",
+	"Statement": [
+		{
+			"Sid": "AdminListfeedbackStatement",
+			"Effect": "Allow",
+			"Principal": {
+				"AWS": "arn:aws:iam::[YOUR-ACCOUNT-ID]:root"
+			},
+			"Action": "s3:*",
+			"Resource": "arn:aws:s3:::dvsa-feedback-bucket-[YOUR-ACCOUNT-ID]-us-east-1"
+		}
+	]
+}
