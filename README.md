@@ -1,6 +1,6 @@
 # 🛡️ Damn Vulnerable Serverless Application (DVSA) - Security Audit & Exploitation
 
-Welcome to my Serverless Security Portfolio! This repository contains my technical investigations, exploit scripts, and remediation code for the OWASP Serverless Top 10 vulnerabilities, tested against the Damn Vulnerable Serverless Application (DVSA).
+Welcome to our Serverless Security Portfolio! This repository contains  technical investigations, exploit scripts, and remediation code for the OWASP Serverless Top 10 vulnerabilities, tested against the Damn Vulnerable Serverless Application (DVSA).
 
 This project demonstrates the ability to identify, exploit, and secure infrastructure-as-code (IaC) and serverless application logic within an Amazon Web Services (AWS) environment.
 
@@ -9,7 +9,7 @@ This project demonstrates the ability to identify, exploit, and secure infrastru
 ## 🎯 Project Overview
 Serverless architectures (like AWS Lambda, API Gateway, and DynamoDB) shift security responsibilities from traditional network perimeters to the application code and Identity and Access Management (IAM) configurations. 
 
-This repository documents a series of hands-on security lessons. For each vulnerability, I assumed the role of an attacker to compromise the system, and then transitioned to a cloud security engineer to implement strict, least-privilege defenses.
+This repository documents a series of hands-on security lessons. For each vulnerability, we assumed the role of an attacker to compromise the system, and then transitioned to a cloud security engineer to implement strict, least-privilege defenses.
 
 ### Key Competencies Demonstrated:
 * **Cloud Infrastructure Exploitation:** Hijacking IAM roles, extracting STS credentials, and performing lateral movement.
