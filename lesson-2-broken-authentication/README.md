@@ -56,3 +56,18 @@ Replaced unsafe token decoding with secure JWT signature verification using `nod
 var auth_data = jose.util.base64url.decode(token_sections[1]);
 var token = JSON.parse(auth_data);
 var user = token.username;
+Verification After Fix
+
+The same forged token was tested again.
+
+Server response:
+
+Token verification failed
+
+This confirms the vulnerability was successfully remediated.
+
+Security Lesson Learned
+
+JWT tokens must always be verified before trusting identity claims.
+
+Decoding a token does not mean validating it.
