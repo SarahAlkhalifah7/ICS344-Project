@@ -61,10 +61,4 @@ Added an admin group check immediately after JWT decoding in `lambda_handler`.
  
 ---
  
-## Files
- 
-| File | Description |
-|------|-------------|
-| `admin_update_orders_before.py` | Original vulnerable Lambda code |
-| `admin_update_orders_after.py` | Fixed Lambda code with admin check |
-| `README.md` | This file |
+
