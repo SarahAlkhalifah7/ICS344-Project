@@ -1,9 +1,5 @@
 # ============================================================
-# ICS-344 Course Project - Lesson #6: Denial of Service (DoS)
 # DVSA Billing Endpoint Flood Script
-# ============================================================
-# IMPORTANT: For educational use only in a non-production
-# AWS account as part of ICS-344 at KFUPM.
 # ============================================================
 
 # Step 1: Set your variables
