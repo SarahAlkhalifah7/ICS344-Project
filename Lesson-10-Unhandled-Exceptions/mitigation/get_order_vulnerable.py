@@ -1,34 +1,3 @@
-# =============================================================
-# ICS-344 Course Project - Lesson 10: Unhandled Exceptions
-# VULNERABLE (ORIGINAL): DVSA-ORDER-GET/get_order.py
-#
-# VULNERABILITY:
-# Line 30: orderId = event["orderId"]
-# Line 31: userId  = event["user"]
-# - Direct bracket access with no try/except
-# - If key is missing -> KeyError propagates to client
-# - Exposes: /var/task/get_order.py line 30
-# - Exposes: lambda_handler function name
-# - Exposes: actual source code orderId = event["orderId"]
-# =============================================================
-
-import json
-import boto3
-import os
-import decimal
-from boto3.dynamodb.conditions import Key, Attr
-
-    # status list
-    # -----------
-    # 100: open
-    # 110: payment-failed
-    # 120: paid
-    # 200: processing
-    # 210: shipped
-    # 300: delivered
-    # 500: cancelled
-    # 600: rejected
-
 def lambda_handler(event, context):
     print(json.dumps(event))
 
