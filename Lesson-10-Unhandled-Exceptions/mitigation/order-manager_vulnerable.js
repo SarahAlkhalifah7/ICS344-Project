@@ -1,16 +1,3 @@
-// =============================================================
-// ICS-344 Course Project - Lesson 10: Unhandled Exceptions
-// VULNERABLE (ORIGINAL): DVSA-ORDER-MANAGER/order-manager.js
-//
-// VULNERABILITY:
-// Line 6: var req = JSON.parse(event.body);
-// - No try/catch around JSON.parse
-// - If body is invalid JSON -> SyntaxError propagates to client
-// - Exposes: /var/task/order-manager.js:11:24
-// - Exposes: /var/runtime/index.mjs:1306:29
-// - Exposes: full Lambda runtime call stack
-// =============================================================
-
 const { LambdaClient, InvokeCommand } = require("@aws-sdk/client-lambda");
 const { CognitoIdentityProviderClient, AdminGetUserCommand } = require("@aws-sdk/client-cognito-identity-provider");
 const jose = require('node-jose');
