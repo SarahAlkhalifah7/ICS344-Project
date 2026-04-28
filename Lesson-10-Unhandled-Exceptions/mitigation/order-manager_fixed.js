@@ -1,21 +1,3 @@
-// =============================================================
-// ICS-344 Course Project - Lesson 10: Unhandled Exceptions
-// MITIGATION: DVSA-ORDER-MANAGER/order-manager.js
-//
-// CHANGES MADE:
-// 1. Added try/catch around JSON.parse(event.body)
-// 2. Added input validation for required 'action' field
-// 3. Generic error messages returned to client only
-// 4. Full details logged to CloudWatch internally
-//
-// BEFORE (vulnerable - line 6):
-//   var req = JSON.parse(event.body); // crashes if invalid JSON!
-//
-// AFTER (fixed):
-//   try { req = JSON.parse(event.body); }
-//   catch (parseErr) { return generic error; }
-// =============================================================
-
 const { LambdaClient, InvokeCommand } = require("@aws-sdk/client-lambda");
 const { CognitoIdentityProviderClient, AdminGetUserCommand } = require("@aws-sdk/client-cognito-identity-provider");
 const jose = require('node-jose');
