@@ -12,19 +12,19 @@
 
 ---
 
-## Part 1 — Goal and Vulnerability Summary
+## Part 1: Goal and Vulnerability Summary
 
 The billing endpoint in DVSA has no rate limiting or abuse protection. By sending a large number of concurrent billing requests, an attacker can exhaust Lambda concurrency, causing throttling errors for legitimate users attempting to complete checkout. The root cause is the complete absence of any rate limiting at the API Gateway level and no reserved concurrency cap at the Lambda level.
 
 ---
 
-## Part 2 — Root Cause
+## Part 2: Root Cause
 
 AWS Lambda enforces a default regional concurrency limit. Each billing request occupies one concurrent execution slot. Because no rate limiting exists at API Gateway and no concurrency cap exists at Lambda, nothing prevents flooding the endpoint with hundreds of parallel requests simultaneously.
 
 ---
 
-## Part 3 — Environment and Setup
+## Part 3: Environment and Setup
 
 **Prerequisites:**
 - Valid DVSA user account
@@ -47,9 +47,9 @@ $token = "YOUR-JWT-TOKEN-HERE"
 
 ---
 
-## Part 4 — Reproduction Steps
+## Part 4: Reproduction Steps
 
-### Step 1 — Confirm Normal Billing
+### Step 1: Confirm Normal Billing
 
 Send one billing request in Postman:
 ```json
@@ -65,11 +65,11 @@ Send one billing request in Postman:
 ```
 Expected result: `200 OK` with `status: ok` and `amount` field.
 
-### Step 2 — Demonstrate No Rate Limiting
+### Step 2: Demonstrate No Rate Limiting
 
 Send 4 billing requests rapidly in Postman. All return `200 OK` with no throttling, no `429` errors, and no blocking.
 
-### Step 3 — Launch DoS Flood
+### Step 3: Launch DoS Flood
 
 Run the flood script from `exploit/dos_flood.ps1`:
 
@@ -95,7 +95,7 @@ Write-Host "Attack finished. 800 requests sent."
 
 **Result:** 800 concurrent jobs overwhelmed the system, producing `System.OutOfMemoryException`, confirming the endpoint can be flooded with no protection.
 
-### Step 4 — Check CloudWatch Metrics
+### Step 4: Check CloudWatch Metrics
 
 1. AWS Console → CloudWatch → All Metrics → Lambda → DVSA-ORDER-BILLING
 2. Check Invocations, Throttles, Errors
@@ -103,7 +103,7 @@ Write-Host "Attack finished. 800 requests sent."
 
 ---
 
-## Part 5 — Evidence and Proof
+## Part 5: Evidence and Proof
 
 - Normal billing returns `200 OK` with no restrictions
 - 4 rapid requests all return `200 OK` with no throttling
@@ -112,7 +112,7 @@ Write-Host "Attack finished. 800 requests sent."
 
 ---
 
-## Part 6 — Fix Strategy
+## Part 6: Fix Strategy
 
 Apply rate limiting at the API Gateway level:
 - **API Gateway Stage Throttling:** Enable with Rate and Burst limits
@@ -121,7 +121,7 @@ Apply rate limiting at the API Gateway level:
 
 ---
 
-## Part 7 — Fix Applied
+## Part 7: Fix Applied
 
 **Location:** AWS Console → API Gateway → DVSA-APIs → Stages → dvsa → Edit
 
@@ -135,7 +135,7 @@ No code changes required — pure infrastructure configuration.
 
 ---
 
-## Part 8 — Verification After Fix
+## Part 8: Verification After Fix
 
 After applying throttling:
 - Re-ran 800-request flood → requests now receive HTTP 429 immediately
@@ -144,6 +144,6 @@ After applying throttling:
 
 ---
 
-## Part 10 — Takeaway
+## Part 10: Takeaway
 
 Availability is a security property. In serverless architectures, unprotected endpoints can be flooded to exhaust Lambda concurrency and deny service to legitimate users. A simple API Gateway throttling configuration — 100 req/sec with burst of 50 — is sufficient to prevent this attack while preserving normal functionality.
