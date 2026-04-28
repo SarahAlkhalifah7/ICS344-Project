@@ -1,4 +1,4 @@
-# Lesson 10: Unhandled Exceptions - Information Disclosure
+# Lesson 10: Unhandled Exceptions
 
 ## Overview
 
