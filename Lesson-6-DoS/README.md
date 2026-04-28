@@ -144,6 +144,6 @@ After applying throttling:
 
 ---
 
-## Part 10: Takeaway
+## Part 9: Takeaway
 
-Availability is a security property. In serverless architectures, unprotected endpoints can be flooded to exhaust Lambda concurrency and deny service to legitimate users. A simple API Gateway throttling configuration — 100 req/sec with burst of 50 — is sufficient to prevent this attack while preserving normal functionality.
+Availability is a security property. In serverless architectures, unprotected endpoints can be flooded to exhaust Lambda concurrency and deny service to legitimate users. A simple API Gateway throttling configuration — 100 req/sec with burst of 50 is sufficient to prevent this attack while preserving normal functionality.
