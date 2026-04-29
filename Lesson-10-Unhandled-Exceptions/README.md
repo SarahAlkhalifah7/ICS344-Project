@@ -129,10 +129,6 @@ See `mitigation/` directory for fixed code.
 
 ---
 
-## Part 9 - Structured Analysis
-
-Full Tables A and B are included in the project report:
-`Report/ICS344_Final_Report_Lessons_6_10.docx`
 
 ---
 
