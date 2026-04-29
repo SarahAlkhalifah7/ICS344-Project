@@ -1,4 +1,4 @@
-# Lesson #12: Insufficient Logging and Monitoring (Bonus)
+# Lesson #11: Insufficient Logging and Monitoring (Bonus)
 
 ## Overview
 
