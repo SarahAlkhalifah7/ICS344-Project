@@ -101,14 +101,6 @@ this is not json
 
 ---
 
-## Loot
-
-See `loot/` directory for:
-- `stack_trace_response.json` - Actual leaked stack trace from the API
-- `cloudwatch_error.json` - Actual CloudWatch error log showing SyntaxError
-- `cloudwatch_warn.txt` - Internal Lambda implementation details leaked in logs
-
----
 
 ## Mitigation
 
