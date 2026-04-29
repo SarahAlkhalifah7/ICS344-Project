@@ -146,12 +146,6 @@ lesson-12-insufficient-logging-monitoring/
 ├── exploit/
 │   └── brute_force.sh                 <- curl brute-force attack script
 ├── mitigation/
-│   └── monitoring_setup.md            <- 3 AWS CLI fix commands
-└── loot/
-    ├── 01-no-alarms-before-fix.png    <- empty [] alarms list
-    ├── 02-attack-502-responses.png    <- 50 x 502 terminal output
-    ├── 03-cloudwatch-error-logs.png   <- ERROR lines in CloudWatch
-    ├── 04-alarm-triggered.png         <- alarm in ALARM state
-    ├── 05-email-notification.png      <- AWS notification email
-    └── 06-cloudwatch-console-alarm.png <- red alarm in console
+    └── monitoring_setup.md            <- 3 AWS CLI fix commands
+
 ```
