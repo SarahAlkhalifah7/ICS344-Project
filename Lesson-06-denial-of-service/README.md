@@ -165,11 +165,5 @@ lesson-06-denial-of-service/
 ├── exploit/
 │   └── dos_flood.ps1                    ← flood attack script
 ├── mitigation/
-│   └── api_gateway_throttling.md        ← fix details
-└── loot/
-    ├── 01-normal-billing-200ok.png       ← normal request before attack
-    ├── 02-cloudwatch-before-fix.png      ← spike of 538 concurrent executions
-    ├── 03-throttling-settings-before.png ← vulnerable default settings
-    ├── 04-throttling-settings-after.png  ← fixed throttling configuration
-    └── 05-cloudwatch-after-fix.png       ← flat metrics after fix applied
+    └── api_gateway_throttling.md        ← fix details
 ```
